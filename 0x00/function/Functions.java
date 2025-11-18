@@ -11,6 +11,8 @@ public class Functions {
     }
 
     public static class User {
+        public boolean isAdmin;
+
         public void setRole(User user) {
         }
     }
@@ -79,6 +81,9 @@ public class Functions {
     }
 
     public User saveUser(User user) {
+        if (user.isAdmin) {
+            user.setRole(user);
+        }
         return userRepository.save(user);
     }
 
