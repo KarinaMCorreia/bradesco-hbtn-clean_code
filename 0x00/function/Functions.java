@@ -1,5 +1,3 @@
-import java.util.Date;
-
 @interface PostMapping {
     String value();
 }
@@ -57,6 +55,14 @@ public class Functions {
         }
     }
 
+    public static class UserService {
+        private UserRepository userRepository = new UserRepository();
+
+        public User save(User user) {
+            return userRepository.save(user);
+        }
+    }
+
     private IncomeRepository inRepo = new IncomeRepository();
     private ExpenseRepository outRepo = new ExpenseRepository();
     private UserRepository userRepository = new UserRepository();
@@ -72,7 +78,6 @@ public class Functions {
         outRepo.save(expense);
     }
 
-    @PostMapping("/user")
     public User saveUser(User user) {
         return userRepository.save(user);
     }
@@ -91,5 +96,19 @@ public class Functions {
 
     private String getVersion() {
         return versionService.getVersion();
+    }
+
+    static class AbstractionExample {
+        private UserService userService = new UserService();
+
+        @PostMapping("/user")
+        public User saveUser(User user) {
+            return userService.save(user);
+        }
+    }
+
+    static class ArgumentsExample {
+        public void saveUser(User user) {
+        }
     }
 }
