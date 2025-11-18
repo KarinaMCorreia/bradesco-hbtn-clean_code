@@ -39,12 +39,6 @@ public class Functions {
         }
     }
 
-    public static class UserService {
-        public User save(User user) {
-            return user;
-        }
-    }
-
     public static class VersionService {
         public String getVersion() {
             return "1.0.0";
@@ -65,7 +59,6 @@ public class Functions {
 
     private IncomeRepository inRepo = new IncomeRepository();
     private ExpenseRepository outRepo = new ExpenseRepository();
-    private UserService userService = new UserService();
     private UserRepository userRepository = new UserRepository();
     private VersionService versionService = new VersionService();
     private EnvironmentService environmentService = new EnvironmentService();
@@ -81,13 +74,6 @@ public class Functions {
 
     @PostMapping("/user")
     public User saveUser(User user) {
-        return userService.save(user);
-    }
-
-    public void saveUser(User user) {
-    }
-
-    public User saveUserNoSideEffects(User user) {
         return userRepository.save(user);
     }
 
