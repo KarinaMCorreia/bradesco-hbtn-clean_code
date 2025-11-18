@@ -33,10 +33,6 @@ public class Name {
     // Evite mapa mental: nome claro
     public URL url;
 
-    // Classe com nome de substantivo
-    public class TableRepresenter {
-    }
-
     // Métodos com verbo
     public void saveCar() {
     }
@@ -52,6 +48,6 @@ public class Name {
     }
 
     // Constantes em vez de "números mágicos"
-    public static final int DAYS_IN_YEAR = 360;
-    public static final int HOURS_IN_WEEK = 168;
+    public final int DAYS_IN_YEAR = 360;
+    public final int HOURS_IN_WEEK = 168;
 }
