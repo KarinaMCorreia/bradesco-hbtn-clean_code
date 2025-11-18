@@ -26,7 +26,7 @@ public class Name {
 
     public URL url;
 
-    public class TableRepresenter {
+    public class TableRepresent {
     }
 
     public void saveCar() {
